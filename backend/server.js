@@ -2,12 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const authRoute = require("./routes/authRoutes");
+
 
 // خواندن متغیرهای محیطی از فایل .env
 dotenv.config();
 
 const app = express();
-
+app.use("/api/auth", authRoute);
 // Middleware برای خواندن JSON از body درخواست‌ها
 app.use(express.json());
 app.use(cors());
